@@ -1,0 +1,12 @@
+# Ignore vendor libraries
+assets/vendor/
+
+# Ignore configuration files that may contain sensitive data
+config/config.php
+
+# Ignore installation directory after setup
+install/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#wrapper {
+    display: flex;
+    transition: all 0.3s;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    background: #1e2124;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.sidebar-heading {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid #343a40;
+}
+
+.list-group-item {
+    border: none;
+    padding: 1rem 1.5rem;
+    color: #adb5bd;
+    font-weight: 500;
+}
+
+.list-group-item:hover,
+.list-group-item:focus,
+.list-group-item.active {
+    background: #343a40;
+    color: #fff;
+    text-decoration: none;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg);
+}
+
+.card.text-white {
+    color: #fff !important;
+}
+
+.card-cars {
+    background: linear-gradient(45deg, #4e73df, #224abe);
+}
+
+.card-users {
+    background: linear-gradient(45deg, #6f42c1, #5a32a3);
+}
+
+.card-bookings {
+    background: linear-gradient(45deg, #1cc88a, #13855c);
+}
+
+.card-revenue {
+    background: linear-gradient(45deg, #f6c23e, #dda20a);
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -250px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        width: 100%;
+    }
+}

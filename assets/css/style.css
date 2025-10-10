@@ -1,0 +1,11 @@
+/* Custom Styles for Car Rental Management System */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+}

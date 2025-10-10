@@ -1,0 +1,81 @@
+/* General Body Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main content should grow to push footer down */
+.container {
+    flex: 1;
+}
+
+/* Navbar Enhancements */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Jumbotron / Hero Section */
+.jumbotron {
+    background: #e9ecef;
+    border-radius: 0.3rem;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform .2s; /* Animation */
+}
+
+.card:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.card-footer {
+    background-color: #fff;
+    border-top: none;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color .15s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Footer Styles */
+footer {
+    width: 100%;
+}
+
+/* Flash message styling */
+#msg-flash {
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}

@@ -53,6 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $success = "Database and tables created successfully!";
 
                     // --- Step 5: Create config.php file ---
+                    $config_dir = '../config';
+                    if (!is_dir($config_dir)) {
+                        mkdir($config_dir, 0755, true);
+                    }
+
                     $config_content = "<?php
 // Database Configuration
 define('DB_HOST', '$db_host');
@@ -70,7 +75,7 @@ if (\$conn->connect_error) {
     die('Connection failed: ' . \$conn->connect_error);
 }
 ?>";
-                    if (!file_put_contents('../config/config.php', $config_content)) {
+                    if (!file_put_contents($config_dir . '/config.php', $config_content)) {
                         $error .= " Could not create config.php. Please create it manually.";
                     } else {
                          // --- Step 6: Setup Admin User ---

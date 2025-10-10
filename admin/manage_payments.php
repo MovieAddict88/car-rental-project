@@ -38,7 +38,7 @@ $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($payment['id']); ?></td>
                         <td><a href="manage_bookings.php">#<?php echo htmlspecialchars($payment['booking_id']); ?></a></td>
                         <td><?php echo htmlspecialchars($payment['user_name']); ?></td>
-                        <td>$<?php echo htmlspecialchars(number_format($payment['amount'], 2)); ?></td>
+                        <td>₱<?php echo htmlspecialchars(number_format($payment['amount'], 2)); ?></td>
                         <td><?php echo htmlspecialchars($payment['method']); ?></td>
                         <td><?php echo htmlspecialchars($payment['transaction_id']); ?></td>
                         <td>

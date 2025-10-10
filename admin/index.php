@@ -21,7 +21,7 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
 
 <div class="row">
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+        <div class="card text-white mb-4 card-cars">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -40,7 +40,7 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-warning text-white mb-4">
+        <div class="card text-white mb-4 card-users">
             <div class="card-body">
                  <div class="d-flex justify-content-between">
                     <div>
@@ -59,7 +59,7 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-success text-white mb-4">
+        <div class="card text-white mb-4 card-bookings">
             <div class="card-body">
                  <div class="d-flex justify-content-between">
                     <div>
@@ -78,14 +78,14 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
+        <div class="card text-white mb-4 card-revenue">
             <div class="card-body">
                  <div class="d-flex justify-content-between">
                     <div>
-                        <i class="fas fa-dollar-sign fa-3x"></i>
+                        <i class="fas fa-peso-sign fa-3x"></i>
                     </div>
                     <div>
-                        <div class="fs-1 fw-bold">$<?php echo number_format($total_revenue, 2); ?></div>
+                        <div class="fs-1 fw-bold">₱<?php echo number_format($total_revenue, 2); ?></div>
                         <div>Total Revenue</div>
                     </div>
                 </div>

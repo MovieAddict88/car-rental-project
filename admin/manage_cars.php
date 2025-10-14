@@ -87,7 +87,7 @@ if ($action === 'view') {
                             <td><img src="../assets/images/<?php echo htmlspecialchars($car['image']); ?>" alt="Car Image" width="100"></td>
                             <td><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></td>
                             <td><?php echo htmlspecialchars($car['type']); ?></td>
-                            <td>$<?php echo htmlspecialchars($car['price_per_day']); ?></td>
+                            <td><?php echo htmlspecialchars(format_currency((float)$car['price_per_day'])); ?></td>
                             <td><?php echo $car['availability'] ? '<span class="badge bg-success">Available</span>' : '<span class="badge bg-danger">Rented</span>'; ?></td>
                             <td>
                                 <a href="?action=edit&id=<?php echo $car['id']; ?>" class="btn btn-primary btn-sm">Edit</a>

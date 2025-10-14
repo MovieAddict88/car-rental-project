@@ -46,7 +46,7 @@ function send_booking_confirmation_email($user_email, $user_name, $booking) {
                        . "<li><strong>Car:</strong> " . htmlspecialchars($booking['brand'] . ' ' . $booking['model']) . "</li>"
                        . "<li><strong>Start Date:</strong> " . $booking['start_date'] . "</li>"
                        . "<li><strong>End Date:</strong> " . $booking['end_date'] . "</li>"
-                       . "<li><strong>Total Price:</strong> $" . number_format($booking['total_price'], 2) . "</li>"
+                       . "<li><strong>Total Price:</strong> " . format_currency((float)$booking['total_price']) . "</li>"
                        . "</ul>"
                        . "<p>Thank you for choosing our service!</p>";
 

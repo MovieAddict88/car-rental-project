@@ -85,7 +85,7 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
                         <i class="fas fa-dollar-sign fa-3x"></i>
                     </div>
                     <div>
-                        <div class="fs-1 fw-bold">$<?php echo number_format($total_revenue, 2); ?></div>
+                        <div class="fs-1 fw-bold"><?php echo format_currency((float)$total_revenue); ?></div>
                         <div>Total Revenue</div>
                     </div>
                 </div>

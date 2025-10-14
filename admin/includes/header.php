@@ -39,7 +39,9 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                <button class="btn btn-link text-dark p-0 me-3" id="menu-toggle" aria-label="Toggle sidebar">
+                    <span class="admin-hamburger"><span></span><span></span><span></span></span>
+                </button>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown">
@@ -54,5 +56,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
                 </div>
             </div>
         </nav>
+
+        <div id="adminOverlay" class="admin-overlay"></div>
 
         <div class="container-fluid p-4">

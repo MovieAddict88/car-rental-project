@@ -51,9 +51,9 @@ $num_days = $interval->days;
                         <h5><strong>Car:</strong> <?php echo htmlspecialchars($booking['brand'] . ' ' . $booking['model']); ?></h5>
                         <p><strong>Rental Period:</strong> <?php echo htmlspecialchars($booking['start_date']); ?> to <?php echo htmlspecialchars($booking['end_date']); ?></p>
                         <p><strong>Duration:</strong> <?php echo $num_days; ?> day(s)</p>
-                        <p><strong>Price per day:</strong> $<?php echo htmlspecialchars($booking['price_per_day']); ?></p>
+                        <p><strong>Price per day:</strong> <?php echo htmlspecialchars(format_currency((float)$booking['price_per_day'])); ?></p>
                         <hr>
-                        <h4 class="text-primary"><strong>Total Amount: $<?php echo htmlspecialchars($booking['total_price']); ?></strong></h4>
+                        <h4 class="text-primary"><strong>Total Amount: <?php echo htmlspecialchars(format_currency((float)$booking['total_price'])); ?></strong></h4>
                     </div>
                 </div>
             </div>

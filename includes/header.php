@@ -14,10 +14,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="<?php echo BASE_URL; ?>/public/index.php">CRMS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0 p-0" type="button" id="hamburgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <span class="hamburger"><span></span><span></span><span></span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>/public/index.php">Home</a>
@@ -46,6 +46,21 @@
             </ul>
         </div>
     </div>
+</nav>
+
+<!-- Off-canvas navigation for small screens -->
+<div id="offcanvasOverlay" class="offcanvas-nav-overlay"></div>
+<nav id="offcanvasNav" class="offcanvas-nav d-lg-none" aria-hidden="true">
+    <a href="<?php echo BASE_URL; ?>/public/index.php">Home</a>
+    <a href="<?php echo BASE_URL; ?>/public/cars.php">Cars</a>
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <a href="<?php echo BASE_URL; ?>/user/booking_history.php">My Bookings</a>
+        <a href="<?php echo BASE_URL; ?>/user/profile.php">Profile</a>
+        <a href="<?php echo BASE_URL; ?>/user/logout.php">Logout</a>
+    <?php else: ?>
+        <a href="<?php echo BASE_URL; ?>/user/login.php">Login</a>
+        <a href="<?php echo BASE_URL; ?>/user/register.php">Register</a>
+    <?php endif; ?>
 </nav>
 
 <div class="container mt-4">

@@ -35,7 +35,7 @@ $popular_car = $popular_car_stmt->fetch(PDO::FETCH_ASSOC);
                 Financial Summary
             </div>
             <div class="card-body">
-                <h4>Total Revenue: <span class="text-success">$<?php echo number_format($total_revenue ?? 0, 2); ?></span></h4>
+                <h4>Total Revenue: <span class="text-success"><?php echo format_currency((float)($total_revenue ?? 0)); ?></span></h4>
                 <p>This reflects all completed payments.</p>
                 <!-- Placeholder for a chart -->
                 <canvas id="revenueChart" style="display:none;"></canvas>

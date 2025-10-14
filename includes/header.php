@@ -48,9 +48,9 @@
     </div>
 </nav>
 
-<!-- Off-canvas navigation for small screens -->
+<!-- Off-canvas navigation -->
 <div id="offcanvasOverlay" class="offcanvas-nav-overlay"></div>
-<nav id="offcanvasNav" class="offcanvas-nav d-lg-none" aria-hidden="true">
+<nav id="offcanvasNav" class="offcanvas-nav" aria-hidden="true">
     <a href="<?php echo BASE_URL; ?>/public/index.php">Home</a>
     <a href="<?php echo BASE_URL; ?>/public/cars.php">Cars</a>
     <?php if (isset($_SESSION['user_id'])): ?>

@@ -6,7 +6,7 @@ include('includes/header.php');
 // A real-world scenario would involve date filters and more complex queries.
 
 // Total revenue
-$total_revenue = $pdo->query("SELECT SUM(amount) FROM payments WHERE status = 'Completed'")->fetchColumn();
+$total_revenue = $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM payments WHERE status = 'Completed'")->fetchColumn();
 
 // Total bookings
 $total_bookings = $pdo->query("SELECT COUNT(*) FROM bookings")->fetchColumn();
@@ -66,9 +66,10 @@ $popular_car = $popular_car_stmt->fetch(PDO::FETCH_ASSOC);
         Export Data
     </div>
     <div class="card-body">
-        <p>Functionality to export reports as CSV or PDF can be implemented here.</p>
-        <button class="btn btn-secondary" disabled>Export Bookings (CSV)</button>
-        <button class="btn btn-secondary" disabled>Export Payments (PDF)</button>
+        <form class="d-flex gap-2 flex-wrap">
+            <a href="export_bookings_csv.php" class="btn btn-outline-primary">Export Bookings (CSV)</a>
+            <a href="export_payments_pdf.php" class="btn btn-outline-secondary" target="_blank">Export Payments (PDF)</a>
+        </form>
     </div>
 </div>
 

@@ -47,7 +47,7 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo htmlspecialchars($booking['brand'] . ' ' . $booking['model']); ?></td>
                                 <td><?php echo htmlspecialchars($booking['start_date']); ?></td>
                                 <td><?php echo htmlspecialchars($booking['end_date']); ?></td>
-                                <td>$<?php echo htmlspecialchars($booking['total_price']); ?></td>
+                                <td><?php echo htmlspecialchars(format_currency((float)$booking['total_price'])); ?></td>
                                 <td>
                                     <span class="badge
                                         <?php

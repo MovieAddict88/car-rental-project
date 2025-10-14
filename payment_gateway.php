@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_payment']) &&
                 <p><strong>Car:</strong> <?php echo htmlspecialchars($booking['brand'] . ' ' . $booking['model']); ?></p>
                 <p><strong>Start Date:</strong> <?php echo htmlspecialchars($booking['start_date']); ?></p>
                 <p><strong>End Date:</strong> <?php echo htmlspecialchars($booking['end_date']); ?></p>
-                <h4 class="text-success"><strong>Total Amount: $<?php echo htmlspecialchars($booking['total_price']); ?></strong></h4>
+                <h4 class="text-success"><strong>Total Amount: <?php echo htmlspecialchars(format_currency((float)$booking['total_price'])); ?></strong></h4>
                 <hr>
 
                 <!--

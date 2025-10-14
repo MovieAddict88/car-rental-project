@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $car) {
                     <div class="col-md-8">
                         <h4><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h4>
                         <p><strong>Type:</strong> <?php echo htmlspecialchars($car['type']); ?></p>
-                        <p><strong>Price:</strong> $<?php echo htmlspecialchars($car['price_per_day']); ?> / day</p>
+                        <p><strong>Price:</strong> <?php echo htmlspecialchars(format_currency((float)$car['price_per_day'])); ?> / day</p>
                     </div>
                 </div>
             </div>

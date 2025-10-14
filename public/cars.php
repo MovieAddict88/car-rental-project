@@ -18,7 +18,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h5>
                         <p class="card-text">Type: <?php echo htmlspecialchars($car['type']); ?></p>
-                        <p class="card-text"><strong>$<?php echo htmlspecialchars($car['price_per_day']); ?> / day</strong></p>
+                        <p class="card-text"><strong><?php echo htmlspecialchars(format_currency((float)$car['price_per_day'])); ?> / day</strong></p>
                         <a href="car_details.php?id=<?php echo $car['id']; ?>" class="btn btn-primary">View Details</a>
                     </div>
                 </div>

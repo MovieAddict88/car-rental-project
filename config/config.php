@@ -20,4 +20,17 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Base URL
 define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST']); // Adjust '/crms' to your project's root folder
+
+// Currency settings
+define('CURRENCY_SYMBOL', '₱');
+
+if (!function_exists('format_currency')) {
+    /**
+     * Format a numeric amount into Philippine Peso string.
+     */
+    function format_currency(float $amount, int $decimals = 2): string
+    {
+        return CURRENCY_SYMBOL . number_format((float)$amount, $decimals);
+    }
+}
 ?>

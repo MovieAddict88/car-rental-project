@@ -48,7 +48,7 @@ if (!$receipt) {
                 <p><strong>Transaction ID:</strong> <?php echo htmlspecialchars($receipt['transaction_id']); ?></p>
                 <p><strong>Payment Date:</strong> <?php echo htmlspecialchars($receipt['payment_date']); ?></p>
                 <p><strong>Payment Method:</strong> <?php echo htmlspecialchars($receipt['method']); ?></p>
-                <h4 class="text-success"><strong>Total Paid: $<?php echo htmlspecialchars($receipt['total_price']); ?></strong></h4>
+                <h4 class="text-success"><strong>Total Paid: <?php echo htmlspecialchars(format_currency((float)$receipt['total_price'])); ?></strong></h4>
             </div>
             <div class="card-footer text-center">
                 <a href="../invoice_generator.php?booking_id=<?php echo $receipt['id']; ?>" class="btn btn-primary" target="_blank">Download PDF Invoice</a>

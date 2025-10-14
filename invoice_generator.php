@@ -86,13 +86,13 @@ class PDF extends FPDF
 
         $this->Cell(100, 10, $car_details, 1);
         $this->Cell(30, 10, $num_days . ' days', 1, 0, 'C');
-        $this->Cell(30, 10, '$' . $booking['price_per_day'], 1, 0, 'R');
-        $this->Cell(30, 10, '$' . $booking['total_price'], 1, 1, 'R');
+        $this->Cell(30, 10, CURRENCY_SYMBOL . number_format((float)$booking['price_per_day'], 2), 1, 0, 'R');
+        $this->Cell(30, 10, CURRENCY_SYMBOL . number_format((float)$booking['total_price'], 2), 1, 1, 'R');
 
         // Total
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(160, 10, 'Grand Total', 1, 0, 'R');
-        $this->Cell(30, 10, '$' . $booking['total_price'], 1, 1, 'R');
+        $this->Cell(30, 10, CURRENCY_SYMBOL . number_format((float)$booking['total_price'], 2), 1, 1, 'R');
     }
 }
 

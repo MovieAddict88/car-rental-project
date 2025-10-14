@@ -12,8 +12,8 @@ $total_users = $pdo->query("SELECT count(*) FROM users WHERE role = 'user'")->fe
 $total_bookings = $pdo->query("SELECT count(*) FROM bookings")->fetchColumn();
 
 // Total Revenue
-$total_revenue = $pdo->query("SELECT sum(amount) FROM payments WHERE status = 'Completed'")->fetchColumn();
-$total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there are no payments
+// Ensure revenue is 0 when there are no completed payments
+$total_revenue = $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM payments WHERE status = 'Completed'")->fetchColumn();
 ?>
 
 <h1 class="mt-4">Dashboard</h1>
@@ -85,7 +85,7 @@ $total_revenue = $total_revenue ? $total_revenue : 0; // Handle case where there
                         <i class="fas fa-dollar-sign fa-3x"></i>
                     </div>
                     <div>
-                        <div class="fs-1 fw-bold">$<?php echo number_format($total_revenue, 2); ?></div>
+                        <div class="fs-1 fw-bold"><?php echo format_currency((float)($total_revenue ?? 0)); ?></div>
                         <div>Total Revenue</div>
                     </div>
                 </div>

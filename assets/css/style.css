@@ -7,6 +7,59 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
+/* Public navbar hamburger and off-canvas */
+.navbar .hamburger {
+    width: 28px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.navbar .hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: transform .3s ease, top .3s ease, opacity .2s ease;
+}
+.navbar .hamburger span:nth-child(1) { top: 0; }
+.navbar .hamburger span:nth-child(2) { top: 9px; }
+.navbar .hamburger span:nth-child(3) { top: 18px; }
+.navbar .hamburger.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.navbar .hamburger.active span:nth-child(2) { opacity: 0; }
+.navbar .hamburger.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+.offcanvas-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 1039; /* below offcanvas panel */
+}
+.offcanvas-nav-overlay.active { opacity: 1; pointer-events: auto; }
+
+.offcanvas-nav {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #1f2937; /* dark slate */
+    color: #fff;
+    box-shadow: -8px 0 24px rgba(0,0,0,.25);
+    transition: right .3s ease;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+.offcanvas-nav.active { right: 0; }
+.offcanvas-nav a { color: #fff; text-decoration: none; padding: 10px 12px; border-radius: 8px; }
+.offcanvas-nav a:hover { background: rgba(255,255,255,.08); }
+
 .card {
     border: none;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -30,4 +83,43 @@ body {
 footer {
     background: #343a40;
     color: #fff;
+}
+
+/* Ultra-small phones */
+@media (max-width: 360px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  .btn-lg { padding: .5rem 1rem; font-size: 1rem; }
+}
+
+/* Small phones up to ~4.7" */
+@media (max-width: 400px) {
+  .card img { height: auto; max-height: 180px; object-fit: cover; }
+  .navbar-brand { font-size: 1rem; }
+  .card .btn { width: 100%; }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card .card-title { font-size: 1rem; }
+  .card img { height: 200px; object-fit: cover; }
+}
+
+/* Large screens / TVs */
+@media (min-width: 1400px) {
+  .container { max-width: 1200px; }
+  .card:hover { transform: translateY(-6px); }
+  .card img { height: 260px; object-fit: cover; }
+}
+
+/* Make tables and forms friendlier on narrow screens */
+@media (max-width: 576px) {
+  table.table { font-size: 0.9rem; }
+  .table-responsive { -webkit-overflow-scrolling: touch; }
+  label { font-size: 0.95rem; }
+  input, select, button { font-size: 1rem; }
 }

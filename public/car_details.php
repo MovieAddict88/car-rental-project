@@ -28,7 +28,7 @@ if (!$car) {
     <div class="col-md-6">
         <h2><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>
         <p><strong>Type:</strong> <?php echo htmlspecialchars($car['type']); ?></p>
-        <p><strong>Price:</strong> $<?php echo htmlspecialchars($car['price_per_day']); ?> / day</p>
+        <p><strong>Price:</strong> <?php echo htmlspecialchars(format_currency((float)$car['price_per_day'])); ?> / day</p>
         <p><strong>Description:</strong> A reliable and comfortable car perfect for city driving or long trips. Features include air conditioning, a modern sound system, and excellent fuel efficiency.</p>
 
         <a href="<?php echo BASE_URL; ?>/user/book_car.php?car_id=<?php echo $car['id']; ?>" class="btn btn-success btn-lg">Book Now</a>

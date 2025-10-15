@@ -9,6 +9,7 @@
     transition: all 0.3s;
 }
 
+/* Default desktop: sidebar visible. When .toggled is present on large screens, collapse it */
 #wrapper.toggled #sidebar-wrapper {
     margin-left: -250px;
 }
@@ -96,9 +97,10 @@
     top: 0;
     bottom: 0;
     z-index: 999;
+    margin-left: 0; /* override desktop collapse behavior */
   }
   #wrapper.toggled #sidebar-wrapper {
-    left: 0;
+    left: 0; /* toggled = open on small screens */
   }
 }
 

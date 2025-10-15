@@ -5,8 +5,15 @@ include('includes/header.php');
 // For demonstration, we'll fetch some basic aggregate data.
 // A real-world scenario would involve date filters and more complex queries.
 
-// Total revenue
-$total_revenue = $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM payments WHERE status = 'Completed'")->fetchColumn();
+// Total revenue (align with dashboard logic)
+$revStmt = $pdo->prepare(
+    "SELECT COALESCE(SUM(p.amount), 0)
+     FROM payments p
+     JOIN bookings b ON p.booking_id = b.id
+     WHERE p.status = 'Completed' AND b.status IN ('Confirmed','Completed')"
+);
+$revStmt->execute();
+$total_revenue = (float)$revStmt->fetchColumn();
 
 // Total bookings
 $total_bookings = $pdo->query("SELECT COUNT(*) FROM bookings")->fetchColumn();

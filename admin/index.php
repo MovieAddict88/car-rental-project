@@ -12,8 +12,16 @@ $total_users = $pdo->query("SELECT count(*) FROM users WHERE role = 'user'")->fe
 $total_bookings = $pdo->query("SELECT count(*) FROM bookings")->fetchColumn();
 
 // Total Revenue
-// Ensure revenue is 0 when there are no completed payments
-$total_revenue = $pdo->query("SELECT COALESCE(SUM(amount), 0) FROM payments WHERE status = 'Completed'")->fetchColumn();
+// Compute revenue from completed payments only, joined with valid bookings
+// Joining with bookings protects against orphan payments and keeps figures in sync
+$revenueStmt = $pdo->prepare(
+    "SELECT COALESCE(SUM(p.amount), 0)
+     FROM payments p
+     JOIN bookings b ON p.booking_id = b.id
+     WHERE p.status = 'Completed' AND b.status IN ('Confirmed','Completed')"
+);
+$revenueStmt->execute();
+$total_revenue = (float)$revenueStmt->fetchColumn();
 ?>
 
 <h1 class="mt-4">Dashboard</h1>
